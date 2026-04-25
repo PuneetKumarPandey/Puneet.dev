@@ -1,3 +1,303 @@
+/* ============================================================
+   GLOBALS — Puneet Pandey Personal OS
+   Design Language: Void Black + Liquid Neon + Editorial Type
+   ============================================================ */
+
+@import "../styles/fonts.css";
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Lenis takes over */
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-ash);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* Custom cursor takes over */
+}
+
+/* Disable default cursor everywhere */
+*,
+a,
+button {
+  cursor: none !important;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+::selection {
+  background: var(--color-neon);
+  color: var(--color-void);
+}
+
+/* ── CSS Variables ──────────────────────────────────────────── */
+:root {
+  /* --- Color Palette --- */
+  --color-void: #050507; /* near-black background */
+  --color-depth: #0a0a0f; /* slightly lifted surface */
+  --color-surface: #111118; /* cards, glass */
+  --color-border: #1c1c28; /* subtle borders */
+  --color-muted: #2a2a3d; /* disabled, inactive */
+
+  --color-ash: #c8c8d4; /* primary text */
+  --color-ghost: #6b6b80; /* secondary text */
+  --color-whisper: #3a3a50; /* placeholder, hint */
+
+  /* Neon accent — electric cyan-green */
+  --color-neon: #00ffc2;
+  --color-neon-dim: rgba(0, 255, 194, 0.12);
+  --color-neon-glow: rgba(0, 255, 194, 0.35);
+
+  /* Secondary accent — deep violet */
+  --color-volt: #7c3aed;
+  --color-volt-dim: rgba(124, 58, 237, 0.12);
+
+  /* Warm accent — for contrast moments */
+  --color-ember: #ff6b35;
+  --color-ember-dim: rgba(255, 107, 53, 0.1);
+
+  /* White */
+  --color-white: #ffffff;
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-5: rgba(255, 255, 255, 0.05);
+
+  /* --- Typography --- */
+  --font-display: "Editorial New", "Playfair Display", Georgia, serif;
+  --font-body: "Geist Mono", "IBM Plex Mono", monospace;
+  --font-sans: "Satoshi", "DM Sans", sans-serif;
+
+  /* --- Type Scale (fluid) --- */
+  --text-xs: clamp(0.65rem, 1vw, 0.75rem);
+  --text-sm: clamp(0.75rem, 1.2vw, 0.875rem);
+  --text-base: clamp(0.875rem, 1.5vw, 1rem);
+  --text-md: clamp(1rem, 1.8vw, 1.25rem);
+  --text-lg: clamp(1.25rem, 2vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 3vw, 2rem);
+  --text-2xl: clamp(2rem, 4vw, 3rem);
+  --text-3xl: clamp(3rem, 6vw, 5rem);
+  --text-hero: clamp(4rem, 10vw, 9rem);
+  --text-titan: clamp(6rem, 14vw, 13rem);
+
+  /* --- Spacing --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-section: clamp(6rem, 12vw, 10rem);
+
+  /* --- Layout --- */
+  --max-width: 1440px;
+  --gutter: clamp(1.5rem, 5vw, 5rem);
+  --grid-cols: 12;
+
+  /* --- Borders --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* --- Glass Effect --- */
+  --glass-bg: rgba(17, 17, 24, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: 16px;
+
+  /* --- Shadows --- */
+  --shadow-neon:
+    0 0 40px var(--color-neon-glow), 0 0 80px rgba(0, 255, 194, 0.12);
+  --shadow-volt: 0 0 40px rgba(124, 58, 237, 0.3);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-deep: 0 24px 80px rgba(0, 0, 0, 0.6);
+
+  /* --- Transitions --- */
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
+
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+  --duration-glacial: 1200ms;
+
+  /* --- Z-index Scale --- */
+  --z-below: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-overlay: 50;
+  --z-modal: 100;
+  --z-cursor: 1000;
+  --z-toast: 2000;
+}
+
+/* ── Utility Classes ────────────────────────────────────────── */
+
+/* Grain texture overlay */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.022;
+  pointer-events: none;
+  z-index: var(--z-toast);
+  animation: grain-drift 8s steps(10) infinite;
+}
+
+@keyframes grain-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  20% {
+    transform: translate(3%, 2%);
+  }
+  30% {
+    transform: translate(-1%, 4%);
+  }
+  40% {
+    transform: translate(4%, -1%);
+  }
+  50% {
+    transform: translate(-3%, 3%);
+  }
+  60% {
+    transform: translate(2%, -4%);
+  }
+  70% {
+    transform: translate(-4%, 1%);
+  }
+  80% {
+    transform: translate(1%, -2%);
+  }
+  90% {
+    transform: translate(3%, -3%);
+  }
+}
+
+/* Glass morphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Neon text glow */
+.neon-text {
+  color: var(--color-neon);
+  text-shadow:
+    0 0 20px var(--color-neon-glow),
+    0 0 60px rgba(0, 255, 194, 0.15);
+}
+
+/* GPU acceleration hint */
+.gpu {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Clip path reveal utility */
+.clip-reveal {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Section spacing */
+.section {
+  padding-block: var(--space-section);
+}
+
+/* Visually hidden (a11y) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-neon);
+  border-radius: var(--radius-full);
+}
+
+/* ── Focus Styles ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 1.5px solid var(--color-neon);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,4 +324,45 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* ── Shimmer keyframe (used in loading fallback) ── */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+/* ── Smooth section transitions ── */
+section {
+  isolation: isolate;
+}
+
+/* ── Selection override for neon sections ── */
+#vision ::selection,
+#contact ::selection {
+  background: var(--color-volt);
+  color: var(--color-white);
+}
+
+/* ── Prevent layout shift from scrollbar ── */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* ── Font rendering for large display type ── */
+h1,
+h2,
+h3 {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* ── Prevent tap highlight on mobile ── */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
 }

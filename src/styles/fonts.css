@@ -1,0 +1,43 @@
+/* 
+  Font Strategy:
+  - Display: Editorial New (editorial serif) — commands attention
+  - Body: Geist Mono (monospaced) — signals systems thinking
+  - Sans: Satoshi — clean labels/UI
+  
+  Using Google Fonts CDN for Playfair Display + IBM Plex Mono as fallbacks.
+  Self-host Editorial New + Satoshi via public/fonts/ in production.
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap");
+
+/* Self-hosted: Satoshi (download from fontshare.com) */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+/* Self-hosted: Editorial New (download from pangram-pangram) */
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/EditorialNew-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/EditorialNew-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Editorial New";
+  src: url("/fonts/EditorialNew-Ultrabold.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
