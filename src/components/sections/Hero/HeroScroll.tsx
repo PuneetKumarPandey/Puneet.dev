@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { useEffect } from "react";
+import { gsap } from "@/lib/gsap";
 
 interface Props {
   containerRef: React.RefObject<HTMLElement>;

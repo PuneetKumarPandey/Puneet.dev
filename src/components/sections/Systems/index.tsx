@@ -48,7 +48,7 @@ export default function Systems() {
               className="font-display leading-[0.93] tracking-tight text-white"
               style={{ fontSize: "clamp(3rem,7vw,6.5rem)" }}
             >
-              What I've{" "}
+              What I&apos;ve{" "}
               <em
                 className="not-italic text-transparent"
                 style={{ WebkitTextStroke: "1px rgba(255,255,255,0.2)" }}
@@ -99,7 +99,7 @@ export default function Systems() {
         >
           <span className="mt-1 h-px w-8 bg-border flex-shrink-0" />
           <p className="font-sans text-sm text-whisper leading-relaxed max-w-lg">
-            These aren't polished case studies. They're honest accounts of
+            These aren&apos;t polished case studies. They&apos;re honest accounts of
             problems I chose to solve, decisions I made under constraints, and
             the outcomes that resulted.
           </p>

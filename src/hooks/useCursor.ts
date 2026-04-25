@@ -9,12 +9,6 @@ export type CursorVariant =
   | "text"
   | "hidden";
 
-interface CursorState {
-  x: number;
-  y: number;
-  variant: CursorVariant;
-}
-
 interface UseCursorReturn {
   cursorRef: React.RefObject<HTMLDivElement>;
   dotRef: React.RefObject<HTMLDivElement>;

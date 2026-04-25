@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { scrollTo } from "@/lib/lenis";
 import { useMagnetic } from "@/hooks/useMagnetic";
@@ -69,9 +69,8 @@ export default function Navbar() {
   const backdropOpacity = useTransform(scrollY, [0, 80], [0, 1]);
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 0.06]);
 
-  const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
-    return scrollY.onChange((v) => setScrolled(v > 40));
+    return scrollY.onChange(() => undefined);
   }, [scrollY]);
 
   return (

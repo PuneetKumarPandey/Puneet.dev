@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { gsap } from "@/lib/gsap";
 import { useCursorContext } from "@/context/CursorContext";
 import type { SystemEntry } from "./systemsData";
 import clsx from "clsx";

@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import { useMagnetic } from "@/hooks/useMagnetic";
@@ -137,7 +136,7 @@ export default function Contact() {
                 WebkitTextStroke: "1px rgba(255,255,255,0.18)",
               }}
             >
-              Let's build something real.
+              Let&apos;s build something real.
             </h2>
           </div>
 
@@ -146,7 +145,7 @@ export default function Contact() {
             className="contact-item font-sans text-ghost text-lg max-w-md
                         leading-relaxed mb-16"
           >
-            I'm interested in founding-team roles, meaningful consulting, and AI
+            I&apos;m interested in founding-team roles, meaningful consulting, and AI
             systems that matter. Not agencies. Not feature factories.
           </p>
 

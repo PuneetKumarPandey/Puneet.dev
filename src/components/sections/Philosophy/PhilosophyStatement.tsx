@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useCursorContext } from "@/context/CursorContext";
 
@@ -15,7 +14,6 @@ export default function PhilosophyStatement({
   index,
   text,
   sub,
-  delay = 0,
 }: StatementProps) {
   const lineRef = useScrollReveal<HTMLDivElement>({
     selector: ".reveal-target",

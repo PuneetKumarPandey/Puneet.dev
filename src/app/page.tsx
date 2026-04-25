@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import dynamic from "next/dynamic";
-
 import PageLoader from "@/components/ui/PageLoader";
 import PageTransition from "@/components/layout/PageTransition";
 import Navbar from "@/components/navigation/Navbar";

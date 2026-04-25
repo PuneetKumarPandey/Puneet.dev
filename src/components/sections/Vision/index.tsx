@@ -205,7 +205,7 @@ export default function Vision() {
                 className="h-1.5 w-1.5 rounded-full bg-neon
                            group-hover:scale-150 transition-transform duration-300"
               />
-              Let's build something
+              Let&apos;s build something
             </button>
 
             <motion.div
